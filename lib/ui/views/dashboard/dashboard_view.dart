@@ -72,7 +72,7 @@ class DashboardView extends StackedView<DashboardViewModel> {
                 13.horizontalSpace,
                 buildCustomContainerNavigation(
                   onTap: () {
-                    viewModel.navigateToHistoryScreenView();
+                    viewModel.navigateToDownloadChallanView();
                   },
                   title: 'Download Challan',
                   svgPath: AppSVGs.challanIcon,
@@ -84,7 +84,7 @@ class DashboardView extends StackedView<DashboardViewModel> {
             padding: EdgeInsets.symmetric(vertical: 20.h, horizontal: 20.w),
             child: buildCustomContainerNavigation(
               onTap: () {
-                viewModel.navigateToHistoryScreenView();
+                viewModel.navigateToDisputeFormView();
               },
               title: 'Dispute Form',
               svgPath: AppSVGs.disputeIcon,
