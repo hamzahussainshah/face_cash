@@ -8,7 +8,6 @@ class CustomTextField extends StatelessWidget {
   final String hintText;
   final TextEditingController controller;
   final Widget? prefixIcon;
-  final Widget? suffixIcon;
   final int? maxLines;
   final FocusNode? focusNode;
   final String? Function(String?)? validate;
@@ -18,6 +17,7 @@ class CustomTextField extends StatelessWidget {
   final void Function()? onTap;
   final String? suffixText;
   final Function(String)? onFieldSubmitted;
+
   const CustomTextField({
     super.key,
     required this.hintText,
@@ -25,7 +25,6 @@ class CustomTextField extends StatelessWidget {
     this.onChanged,
     this.validate,
     this.prefixIcon,
-    this.suffixIcon,
     this.obscure = false,
     this.keyboardType,
     this.onTap,
@@ -37,59 +36,92 @@ class CustomTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      onFieldSubmitted: onFieldSubmitted,
-      maxLines: maxLines ?? 1,
-      onTap: onTap,
-      readOnly: onTap == null ? false : true,
-      keyboardType: keyboardType,
-      cursorColor: AppColors.blackColor,
-      cursorHeight: 22.h,
-      cursorWidth: 1.w,
-      cursorRadius: Radius.circular(0.3.r),
-      textAlignVertical: TextAlignVertical.center,
-      obscureText: obscure,
-      controller: controller,
-      obscuringCharacter: '*',
-      onChanged: onChanged,
-      validator: validate,
-      focusNode: focusNode,
-      style: AppTextStyles.mRegular,
-      decoration: InputDecoration(
-        suffix: Container(
-          child: Text(
-            suffixText ?? '',
-            style: AppTextStyles.sMedium.copyWith(
-              color: AppColors.gray500,
+    // Create a local ValueNotifier if it's an obscure field
+    final ValueNotifier<bool> obscureNotifier = ValueNotifier<bool>(obscure);
+
+    return ValueListenableBuilder<bool>(
+      valueListenable: obscureNotifier,
+      builder: (context, isObscure, child) {
+        return TextFormField(
+          onFieldSubmitted: onFieldSubmitted,
+          maxLines: maxLines ?? 1,
+          onTap: onTap,
+          readOnly: onTap == null ? false : true,
+          keyboardType: keyboardType,
+          cursorColor: AppColors.blackColor,
+          cursorHeight: 22.h,
+          cursorWidth: 1.w,
+          cursorRadius: Radius.circular(0.3.r),
+          textAlignVertical: TextAlignVertical.center,
+          obscureText: obscure ? isObscure : false,
+          controller: controller,
+          obscuringCharacter: '*',
+          onChanged: onChanged,
+          validator: validate,
+          focusNode: focusNode,
+          style: AppTextStyles.regularSmall,
+          decoration: InputDecoration(
+            fillColor: AppColors.kcSolidGrey, // Background color
+            filled: true, // Ensures background color is applied
+            suffix: suffixText != null
+                ? Text(
+                    suffixText!,
+                    style: AppTextStyles.regularSmall.copyWith(
+                      color: AppColors.gray500,
+                    ),
+                  )
+                : null,
+            contentPadding: EdgeInsets.symmetric(
+              vertical: 12.h,
+              horizontal: 16.w,
+            ),
+            hintText: hintText,
+            hintStyle: AppTextStyles.regularSmall.copyWith(
+              color: AppColors.kcLightGrey,
+            ),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(12.r),
+              borderSide: BorderSide.none, // No border color
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(12.r),
+              borderSide: BorderSide.none, // No border color
+            ),
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(12.r),
+              borderSide: BorderSide.none, // No border color
+            ),
+            prefixIcon: prefixIcon != null
+                ? Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 12.w),
+                    child: prefixIcon,
+                  )
+                : null,
+            prefixIconConstraints: BoxConstraints(
+              minWidth: 40.w,
+              minHeight: 40.h,
+            ),
+            suffixIcon: obscure
+                ? Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 12.w),
+                    child: GestureDetector(
+                      onTap: () {
+                        obscureNotifier.value = !isObscure;
+                      },
+                      child: Icon(
+                        isObscure ? Icons.visibility_off : Icons.visibility,
+                        color: AppColors.gray500,
+                      ),
+                    ),
+                  )
+                : null,
+            suffixIconConstraints: BoxConstraints(
+              minWidth: 20.w,
+              minHeight: 20.h,
             ),
           ),
-        ),
-        contentPadding: EdgeInsets.symmetric(
-          vertical: 12.h,
-          horizontal: 16.w,
-        ),
-        hintText: hintText,
-        hintStyle: AppTextStyles.mRegular.copyWith(
-          color: const Color(0xFFA1A1AA),
-        ),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8.r),
-          borderSide: const BorderSide(
-            color: AppColors.gray200,
-          ),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12.r),
-          // borderSide: const BorderSide(color: AppColors.red300),
-          borderSide: const BorderSide(color: AppColors.red300),
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12.r),
-          borderSide: const BorderSide(color: AppColors.gray300),
-        ),
-        prefixIcon: prefixIcon,
-        suffixIcon: suffixIcon,
-      ),
+        );
+      },
     );
   }
 }
