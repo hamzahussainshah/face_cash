@@ -5,87 +5,30 @@ import 'package:google_fonts/google_fonts.dart';
 import 'app_colors.dart';
 
 class AppTextStyles {
-  static TextStyle xlSemibold = GoogleFonts.inter(
-    fontSize: 20.sp,
+  static TextStyle largeBold = GoogleFonts.poppins(
+    fontSize: 26.sp,
+    fontWeight: FontWeight.w700,
+    color: AppColors.whiteColor,
+  );
+  static TextStyle largeMedium = GoogleFonts.poppins(
+    fontSize: 22.sp,
     fontWeight: FontWeight.w600,
-    color: const Color(0xFF16141C),
-  );
-  static TextStyle xlRegular = GoogleFonts.poppins(
-    fontSize: 20.sp,
-    fontWeight: FontWeight.w400,
-    color: const Color(0xFF16141C),
-  );
-  static TextStyle lSemibold = GoogleFonts.poppins(
-    fontSize: 18.sp,
-    fontWeight: FontWeight.w600,
-    color: const Color(0xFF16141C),
-  );
-  static TextStyle mSemibold = GoogleFonts.poppins(
-    fontSize: 16.sp,
-    fontWeight: FontWeight.w600,
-    color: const Color(0xFF16141C),
-  );
-  static TextStyle mMedium = GoogleFonts.poppins(
-    fontSize: 16.sp,
-    fontWeight: FontWeight.w500,
-    color: AppColors.textColor,
-  );
-  static TextStyle mRegular = GoogleFonts.poppins(
-    fontSize: 16.sp,
-    fontWeight: FontWeight.w400,
-    color: AppColors.textColor,
-  );
-  static TextStyle sSemibold = GoogleFonts.poppins(
-    fontSize: 15.sp,
-    fontWeight: FontWeight.w600,
-    color: AppColors.textColor,
-  );
-  static TextStyle sMedium = GoogleFonts.poppins(
-    fontSize: 15.sp,
-    fontWeight: FontWeight.w500,
-    color: AppColors.textColor,
-  );
-  static TextStyle sRegular = GoogleFonts.poppins(
-    fontSize: 15.sp,
-    fontWeight: FontWeight.w400,
-    color: AppColors.textColor,
+    color: AppColors.whiteColor,
   );
 
-  static TextStyle sRegularInter = GoogleFonts.inter(
-    fontSize: 15.sp,
+  static TextStyle semibold = GoogleFonts.poppins(
+    fontSize: 16.sp,
     fontWeight: FontWeight.w400,
-    color: AppColors.textColor,
+    color: AppColors.kcLightGrey,
   );
-
-  static TextStyle xSSemibold = GoogleFonts.poppins(
-    fontSize: 14.sp,
-    fontWeight: FontWeight.w600,
-    color: AppColors.textColor,
-  );
-  static TextStyle xsMedium = GoogleFonts.poppins(
-    fontSize: 14.sp,
-    fontWeight: FontWeight.w500,
-    color: AppColors.textColor,
-  );
-  static TextStyle xsRegular = GoogleFonts.poppins(
+  static TextStyle mediumBold = GoogleFonts.poppins(
     fontSize: 14.sp,
     fontWeight: FontWeight.w400,
-    color: AppColors.textColor,
+    color: AppColors.kcLightGrey,
   );
-
-  static TextStyle xsSemibold2 = GoogleFonts.poppins(
-    fontSize: 12.sp,
-    fontWeight: FontWeight.w600,
-    color: AppColors.textColor,
-  );
-  static TextStyle xsMedium2 = GoogleFonts.poppins(
-    fontSize: 12.sp,
-    fontWeight: FontWeight.w500,
-    color: AppColors.textColor,
-  );
-  static TextStyle xsRegular2 = GoogleFonts.poppins(
+  static TextStyle regularSmall = GoogleFonts.poppins(
     fontSize: 12.sp,
     fontWeight: FontWeight.w400,
-    color: AppColors.textColor,
+    color: AppColors.whiteColor,
   );
 }

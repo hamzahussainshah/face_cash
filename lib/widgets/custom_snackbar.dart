@@ -5,7 +5,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../ui/common/app_colors.dart';
 
-
 void showCustomTopSnackbar({
   required BuildContext context,
   required String message,
