@@ -11,7 +11,7 @@ import 'package:face_cash/ui/views/download_challan/download_challan_view.dart'
     as _i11;
 import 'package:face_cash/ui/views/history_screen/history_screen_view.dart'
     as _i10;
-import 'package:face_cash/ui/views/home/home_view.dart' as _i2;
+
 import 'package:face_cash/ui/views/login_screen/login_screen_view.dart' as _i4;
 import 'package:face_cash/ui/views/otp_verification/otp_verification_view.dart'
     as _i8;
@@ -65,10 +65,7 @@ class Routes {
 
 class StackedRouter extends _i1.RouterBase {
   final _routes = <_i1.RouteDef>[
-    _i1.RouteDef(
-      Routes.homeView,
-      page: _i2.HomeView,
-    ),
+
     _i1.RouteDef(
       Routes.startupView,
       page: _i3.StartupView,
@@ -112,12 +109,7 @@ class StackedRouter extends _i1.RouterBase {
   ];
 
   final _pagesMap = <Type, _i1.StackedRouteFactory>{
-    _i2.HomeView: (data) {
-      return _i13.MaterialPageRoute<dynamic>(
-        builder: (context) => const _i2.HomeView(),
-        settings: data,
-      );
-    },
+
     _i3.StartupView: (data) {
       return _i13.MaterialPageRoute<dynamic>(
         builder: (context) => const _i3.StartupView(),

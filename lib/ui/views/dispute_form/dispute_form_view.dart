@@ -57,7 +57,7 @@ class DisputeFormView extends StackedView<DisputeFormViewModel> {
             25.verticalSpace,
             Container(
               margin: EdgeInsets.symmetric(horizontal: 20.w),
-              padding: EdgeInsets.symmetric(horizontal: 10.w,vertical: 10.h),
+              padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
               width: double.infinity,
               height: 366.h,
               decoration: BoxDecoration(
@@ -67,43 +67,60 @@ class DisputeFormView extends StackedView<DisputeFormViewModel> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Dispute Title',style: AppTextStyles.regularSmall,),
+                  Text(
+                    'Dispute Title',
+                    style: AppTextStyles.regularSmall,
+                  ),
                   5.verticalSpace,
-                  CustomTextField(hintText: 'Type here', controller: viewModel.diputeTitleController),
+                  CustomTextField(
+                      hintText: 'Type here',
+                      controller: viewModel.diputeTitleController),
                   10.verticalSpace,
-                  Text('Transaction ID',style: AppTextStyles.regularSmall,),
+                  Text(
+                    'Transaction ID',
+                    style: AppTextStyles.regularSmall,
+                  ),
                   5.verticalSpace,
-                  CustomTextField(hintText: 'Type here', controller: viewModel.transactionIDController),
+                  CustomTextField(
+                      hintText: 'Type here',
+                      controller: viewModel.transactionIDController),
                   10.verticalSpace,
-                  Text('Dispute Description',style: AppTextStyles.regularSmall,),
-                 5.verticalSpace,
-                 SizedBox(
-                   width: double.infinity,
-                   height: 92.h,
-                   child:
-                     TextField(
-                       style: AppTextStyles.regularSmall,
-                       minLines: 3,
-                       maxLines: 8,
-                       cursorColor: AppColors.blackColor,
-                       cursorWidth: 1,
-                       decoration: InputDecoration(
-                         hintText: 'Type description',
-                         hintStyle: AppTextStyles.regularSmall.copyWith(
-                           color: AppColors.kcLightGrey,),
-                         hintMaxLines: 1,
-                         filled: true,
-                         fillColor: AppColors.kcSolidGrey,
-                         contentPadding: EdgeInsets.symmetric(vertical: 6.h, horizontal: 10.w),
-                         border: OutlineInputBorder(
-                           borderRadius: BorderRadius.circular(12.r),
-                           borderSide: BorderSide.none,
-                           ),
-                         ),
-                       ),
-                   ),
+                  Text(
+                    'Dispute Description',
+                    style: AppTextStyles.regularSmall,
+                  ),
+                  5.verticalSpace,
+                  SizedBox(
+                    width: double.infinity,
+                    height: 92.h,
+                    child: TextField(
+                      style: AppTextStyles.regularSmall,
+                      minLines: 3,
+                      maxLines: 8,
+                      cursorColor: AppColors.blackColor,
+                      cursorWidth: 1,
+                      decoration: InputDecoration(
+                        hintText: 'Type description',
+                        hintStyle: AppTextStyles.regularSmall.copyWith(
+                          color: AppColors.kcLightGrey,
+                        ),
+                        hintMaxLines: 1,
+                        filled: true,
+                        fillColor: AppColors.kcSolidGrey,
+                        contentPadding: EdgeInsets.symmetric(
+                            vertical: 6.h, horizontal: 10.w),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12.r),
+                          borderSide: BorderSide.none,
+                        ),
+                      ),
+                    ),
+                  ),
                   10.verticalSpace,
-                  Text('Upload Document/Image',style: AppTextStyles.regularSmall,),
+                  Text(
+                    'Upload Document/Image',
+                    style: AppTextStyles.regularSmall,
+                  ),
                   5.verticalSpace,
                   DottedBorder(
                     color: AppColors.kcSolidGrey,
@@ -134,14 +151,20 @@ class DisputeFormView extends StackedView<DisputeFormViewModel> {
             20.verticalSpace,
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 20.w),
-              child: CustomElevatedButton(text: 'Submit Dispute', onPressed: (){}),
+              child: CustomElevatedButton(
+                  text: 'Submit Dispute', onPressed: () {}),
             ),
             20.verticalSpace,
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 20.w),
-              child: CustomElevatedButton(text: 'Submit Dispute', onPressed: (){},backgroundColor: AppColors.kcLightBackground,),
+              child: CustomElevatedButton(
+                text: 'Submit Dispute',
+                onPressed: () {
+                  viewModel.callDisputeDialog(true);
+                },
+                backgroundColor: AppColors.kcLightBackground,
+              ),
             ),
-
           ],
         ),
       ),
