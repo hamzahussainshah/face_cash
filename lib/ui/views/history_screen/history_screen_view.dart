@@ -44,7 +44,10 @@ class HistoryScreenView extends StackedView<HistoryScreenViewModel> {
                     height: 24.h,
                   ),
                   2.horizontalSpace,
-                  Text('History',style: AppTextStyles.semiLarge,),
+                  Text(
+                    'History',
+                    style: AppTextStyles.semiLarge,
+                  ),
                 ],
               ),
             ),
@@ -78,7 +81,6 @@ class HistoryScreenView extends StackedView<HistoryScreenViewModel> {
                 ),
               ],
             ),
-        
           ],
         ),
       ),
@@ -90,58 +92,68 @@ class HistoryScreenView extends StackedView<HistoryScreenViewModel> {
     required String price,
     required String status,
     required String datetime,
-}) {
+  }) {
     return Container(
-          margin: EdgeInsets.symmetric(horizontal: 20.w),
-          padding: EdgeInsets.symmetric(horizontal: 15.w,vertical: 15.h),
-          width: double.infinity,
-            height: 114.h,
-          decoration: BoxDecoration(
-            color: AppColors.kcSolidGrey,
-            borderRadius: BorderRadius.circular(12.r),
-
-          ),
-          child: Column(
+      margin: EdgeInsets.symmetric(horizontal: 20.w),
+      padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 15.h),
+      width: double.infinity,
+      height: 114.h,
+      decoration: BoxDecoration(
+        color: AppColors.kcSolidGrey,
+        borderRadius: BorderRadius.circular(12.r),
+      ),
+      child: Column(
+        children: [
+          Row(
             children: [
-              Row(
-                children: [
-                  Text(title,style: AppTextStyles.regularSmall,),
-
-                ],
-              ),
-              10.verticalSpace,
-              Row(
-                children: [
-                  Text(price,style: AppTextStyles.regularSmall,),
-                ],
-              ),
-              10.verticalSpace,
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    width: 305.w,
-                    height: 1.h,
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: AppColors.whiteColor,
-                        width: 1.w,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              10.verticalSpace,
-              Row(
-                children: [
-                  Text(status,style: AppTextStyles.regularSmall,),
-                  Spacer(),
-                  Text(datetime,style: AppTextStyles.regularSmall,),
-                ],
+              Text(
+                title,
+                style: AppTextStyles.regularSmall,
               ),
             ],
           ),
-        );
+          10.verticalSpace,
+          Row(
+            children: [
+              Text(
+                price,
+                style: AppTextStyles.regularSmall,
+              ),
+            ],
+          ),
+          10.verticalSpace,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                width: 305.w,
+                height: 1.h,
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: AppColors.whiteColor,
+                    width: 1.w,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          10.verticalSpace,
+          Row(
+            children: [
+              Text(
+                status,
+                style: AppTextStyles.regularSmall,
+              ),
+              Spacer(),
+              Text(
+                datetime,
+                style: AppTextStyles.regularSmall,
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
   }
 
   @override

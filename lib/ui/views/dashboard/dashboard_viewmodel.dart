@@ -10,9 +10,11 @@ class DashboardViewModel extends BaseViewModel {
   navigateToHistoryScreenView() {
     _navigationService.navigateToHistoryScreenView();
   }
+
   navigateToDownloadChallanView() {
     _navigationService.navigateToDownloadChallanView();
   }
+
   navigateToDisputeFormView() {
     _navigationService.navigateToDisputeFormView();
   }

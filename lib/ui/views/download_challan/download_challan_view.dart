@@ -18,7 +18,7 @@ class DownloadChallanView extends StackedView<DownloadChallanViewModel> {
     Widget? child,
   ) {
     return Scaffold(
-      body:SingleChildScrollView(
+      body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -44,7 +44,10 @@ class DownloadChallanView extends StackedView<DownloadChallanViewModel> {
                     height: 24.h,
                   ),
                   2.horizontalSpace,
-                  Text('Download Challan',style: AppTextStyles.semiLarge,),
+                  Text(
+                    'Download Challan',
+                    style: AppTextStyles.semiLarge,
+                  ),
                 ],
               ),
             ),
@@ -84,7 +87,6 @@ class DownloadChallanView extends StackedView<DownloadChallanViewModel> {
                 ),
               ],
             ),
-
           ],
         ),
       ),
@@ -99,26 +101,30 @@ class DownloadChallanView extends StackedView<DownloadChallanViewModel> {
   }) {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 20.w),
-      padding: EdgeInsets.symmetric(horizontal: 15.w,vertical: 15.h),
+      padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 15.h),
       width: double.infinity,
       height: 114.h,
       decoration: BoxDecoration(
         color: AppColors.kcSolidGrey,
         borderRadius: BorderRadius.circular(12.r),
-
       ),
       child: Column(
         children: [
           Row(
             children: [
-              Text(title,style: AppTextStyles.regularSmall,),
-
+              Text(
+                title,
+                style: AppTextStyles.regularSmall,
+              ),
             ],
           ),
           10.verticalSpace,
           Row(
             children: [
-              Text(price,style: AppTextStyles.regularSmall,),
+              Text(
+                price,
+                style: AppTextStyles.regularSmall,
+              ),
             ],
           ),
           10.verticalSpace,
@@ -140,9 +146,15 @@ class DownloadChallanView extends StackedView<DownloadChallanViewModel> {
           10.verticalSpace,
           Row(
             children: [
-              Text(status,style: AppTextStyles.regularSmall,),
+              Text(
+                status,
+                style: AppTextStyles.regularSmall,
+              ),
               Spacer(),
-              Text(datetime,style: AppTextStyles.regularSmall,),
+              Text(
+                datetime,
+                style: AppTextStyles.regularSmall,
+              ),
             ],
           ),
         ],

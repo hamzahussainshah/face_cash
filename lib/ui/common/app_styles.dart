@@ -15,7 +15,7 @@ class AppTextStyles {
     fontWeight: FontWeight.w600,
     color: AppColors.whiteColor,
   );
-static TextStyle semiLarge = GoogleFonts.poppins(
+  static TextStyle semiLarge = GoogleFonts.poppins(
     fontSize: 18.sp,
     fontWeight: FontWeight.w600,
     color: AppColors.whiteColor,
